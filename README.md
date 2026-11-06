@@ -26,8 +26,15 @@
 
 ## 部署方式一：Docker 镜像（平台选「Deploy a Docker image」）
 
-1. 直接用现成镜像 **`ghcr.io/kjgx66f/singbox-cf-node:latest`**（或把本仓库自己构建成镜像推到任意公共仓库，或用平台从仓库构建）。
-2. 在平台创建应用时填镜像地址，设置环境变量 `UUID`、`WS_PATH`、`PORT`。
+镜像用你自己的——本仓库自带 GitHub Actions 工作流，Fork 后自动打包到**你自己的** GHCR，全程不用装 Docker：
+
+1. 把本仓库 **Fork** 到你的 GitHub 账号；
+2. 打开你 Fork 的 **Actions** 页，点一次启用工作流（Fork 的仓库默认禁用 Actions，必须手动开一次）；
+3. 选 **Build Docker image → Run workflow**（或随便推送一次提交），等它跑绿；
+4. 镜像生成在 `ghcr.io/<你的用户名>/singbox-cf-node:latest`；再到 **Packages** 里把这个包的可见性改为 **Public**（部署平台免密拉取需要）；
+5. 在部署平台创建应用时填**你自己的**镜像地址，设置环境变量 `UUID`、`WS_PATH`、`PORT`。
+
+（也可以本地 `docker build` 后推到任意公共仓库，效果一样。）
 3. 记下平台给应用分配的公网地址。
 
 本地自检：
@@ -82,6 +89,7 @@ vless://<UUID>@<你的域名>:443?encryption=none&security=tls&sni=<你的域名
 | 文件 | 作用 |
 |---|---|
 | `Dockerfile` | 单容器镜像：Caddy（前门）+ sing-box（内核） |
+| `.github/workflows/` | 打包工作流：Fork 后经 Actions 构建镜像并推到你自己的 GHCR |
 | `Caddyfile` | 伪装站 + WS 路径反代规则 |
 | `entrypoint.sh` | 按环境变量生成 sing-box 配置、取链接页面，并拉起两个进程 |
 | `sub-template.html` | 取链接页面的模板（运行时按 UUID/路径渲染到秘密后缀下） |

@@ -69,6 +69,16 @@ vless://<UUID>@<应用地址>:443?encryption=none&security=tls&sni=<应用地址
 
 导入后开启代理，验证两件事：① 能正常打开网页；② 查 IP 显示的地区与你选的区域一致（如 JPN1 显示日本）。
 
+## 附：想用「镜像部署」？先让 Actions 打包你自己的镜像
+
+第二步选的是连 GitHub、由平台构建；如果你想在新建应用时选 **Deploy a Docker image**（填镜像地址那种），镜像要用你自己的，按下面做一遍：
+
+1. 把仓库 **Fork** 到你的 GitHub 账号；
+2. 打开 Fork 的 **Actions** 页，点启用工作流（Fork 默认禁用，只需点一次）；
+3. 选 **Build Docker image → Run workflow**，等它跑绿（约 2–3 分钟）；
+4. 到仓库的 **Packages**，点开 `singbox-cf-node` 包，在 Package settings 里把可见性改成 **Public**；
+5. 回 Cloady 新建应用选 **Deploy a Docker image**，镜像地址填 `ghcr.io/<你的 GitHub 用户名>/singbox-cf-node:latest`，其余步骤（填环境变量、Redeploy、自检）与正文相同。
+
 ## 进阶（可选）：套 Cloudflare
 
 有自己域名的再做这段，没域名不影响使用：
