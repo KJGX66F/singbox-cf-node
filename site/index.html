@@ -1,54 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notes on Slow Tech — a personal blog</title>
+<title>暖爪救助 · 流浪狗救助与领养</title>
 <style>
-  body { font-family: Georgia, 'Times New Roman', serif; margin: 0; color: #222; background: #faf8f4; }
-  header { max-width: 680px; margin: 0 auto; padding: 48px 20px 8px; }
-  header h1 { font-size: 30px; margin: 0 0 6px; }
-  header p { color: #777; margin: 0; font-style: italic; }
-  main { max-width: 680px; margin: 0 auto; padding: 20px; }
-  article { margin-bottom: 40px; }
-  article h2 { font-size: 21px; margin-bottom: 4px; }
-  article time { color: #999; font-size: 13px; }
-  article p { line-height: 1.65; }
-  footer { max-width: 680px; margin: 0 auto; padding: 20px; color: #aaa; font-size: 13px; border-top: 1px solid #e5e0d8; }
-  a { color: #33691e; }
+  :root { --ink:#3a322a; --muted:#8a7d6d; --line:#eadfce; --accent:#d97b3f; --card:#ffffff; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#fdf8f0; color:var(--ink); font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif; line-height:1.75; }
+  header { border-bottom:1px solid var(--line); background:#fffaf2; }
+  .wrap { max-width: 880px; margin:0 auto; padding: 0 20px; }
+  .brand { display:flex; align-items:center; gap:10px; padding: 18px 0 6px; }
+  .brand .paw { font-size:30px; }
+  .brand h1 { font-size:26px; margin:0; letter-spacing:2px; }
+  .brand small { color:var(--muted); letter-spacing:1px; }
+  nav { display:flex; gap:22px; padding: 6px 0 14px; font-size:14px; color:var(--muted); }
+  nav span { cursor:default; }
+  .hero { padding: 44px 0 10px; }
+  .hero h2 { font-size:34px; margin:0 0 8px; font-weight:700; }
+  .hero p { color:var(--muted); max-width: 560px; margin:0; }
+  .stats { display:flex; gap:14px; flex-wrap:wrap; margin:28px 0 6px; }
+  .stat { flex:1; min-width:150px; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 18px; }
+  .stat b { font-size:24px; color:var(--accent); display:block; line-height:1.3; }
+  .stat span { font-size:13px; color:var(--muted); }
+  h3.section { font-size:20px; margin:42px 0 16px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+  .dogs { display:grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap:16px; }
+  .dog { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center; }
+  .dog .face { font-size:52px; line-height:1.2; }
+  .dog h4 { margin:8px 0 2px; font-size:17px; }
+  .dog .meta { font-size:12.5px; color:var(--muted); }
+  .dog p { font-size:13.5px; margin:8px 0 10px; }
+  .tag { display:inline-block; font-size:12px; color:var(--accent); border:1px solid #f0cfb2; background:#fdf1e5; border-radius:999px; padding:1px 10px; margin:2px 2px 0; }
+  .news article { padding:14px 0; border-bottom:1px dashed var(--line); }
+  .news time { color:var(--accent); font-size:13px; }
+  .news h4 { margin:2px 0 4px; font-size:16px; }
+  .news p { margin:0; color:#5c5347; font-size:14.5px; }
+  .steps { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:14px; }
+  .step { background:#fffaf2; border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:14px; }
+  .step b { color:var(--accent); display:block; margin-bottom:4px; }
+  footer { margin-top:56px; border-top:1px solid var(--line); padding:22px 0 40px; color:var(--muted); font-size:13px; text-align:center; }
 </style>
 </head>
 <body>
 <header>
-  <h1>Notes on Slow Tech</h1>
-  <p>Writing about tools that respect your time.</p>
+  <div class="wrap">
+    <div class="brand">
+      <span class="paw">🐾</span>
+      <div>
+        <h1>暖爪救助</h1>
+        <small>WARM PAWS RESCUE · 流浪狗救助与领养</small>
+      </div>
+    </div>
+    <nav><span>首页</span><span>待领养</span><span>救助动态</span><span>领养流程</span><span>关于我们</span></nav>
+  </div>
 </header>
-<main>
-  <article>
-    <h2>Why I went back to a paper notebook</h2>
-    <time>October 28, 2026</time>
-    <p>Every notes app I have tried eventually asks me to reorganize my thoughts
-    to suit its database. Paper never does. This month I moved my daily planning
-    back to a pocket notebook, and the interesting part is not nostalgia — it is
-    the friction. Writing by hand forces a first draft of every decision.</p>
-    <p>The apps are still better for search and sharing. But for thinking,
-    slow wins more often than I expected.</p>
-  </article>
-  <article>
-    <h2>A small defense of boring tools</h2>
-    <time>October 12, 2026</time>
-    <p>The tools that survive in my workflow share three traits: they start
-    fast, they fail loudly, and their files outlive the company that made them.
-    Anything else is a rental, and rentals should be priced accordingly.</p>
-  </article>
-  <article>
-    <h2>Reading list: autumn</h2>
-    <time>September 30, 2026</time>
-    <p>Three essays and one very old book on craft, attention, and why the
-    best interfaces are the ones you stop noticing. Notes to follow once I
-    finish the last chapter.</p>
-  </article>
+
+<main class="wrap">
+  <section class="hero">
+    <h2>给每一只流浪狗一个家</h2>
+    <p>我们是一支由志愿者组成的民间救助团队，救助城市里流浪、受伤和被遗弃的狗狗，为它们提供医疗、绝育和临时安置，再认真地为每一只找到愿意陪它走完一生的家庭。</p>
+    <div class="stats">
+      <div class="stat"><b>326 只</b><span>累计救助</span></div>
+      <div class="stat"><b>289 只</b><span>成功领养</span></div>
+      <div class="stat"><b>47 人</b><span>在册志愿者</span></div>
+      <div class="stat"><b>12 只</b><span>当前待领养</span></div>
+    </div>
+  </section>
+
+  <h3 class="section">🐕 待领养的狗狗</h3>
+  <section class="dogs">
+    <div class="dog">
+      <div class="face">🐕</div>
+      <h4>阿黄</h4>
+      <div class="meta">中华田园犬 · 公 · 2 岁</div>
+      <p>在城郊仓库边长大的孩子，见人就摇尾巴，牵绳随行学得特别快。</p>
+      <span class="tag">已绝育</span><span class="tag">已疫苗</span><span class="tag">亲人</span>
+    </div>
+    <div class="dog">
+      <div class="face">🐶</div>
+      <h4>豆豆</h4>
+      <div class="meta">串串 · 母 · 8 个月</div>
+      <p>雨夜在桥洞下被发现的，个头小、精力旺盛，适合有时间陪玩的家庭。</p>
+      <span class="tag">已疫苗</span><span class="tag">活泼</span><span class="tag">小型</span>
+    </div>
+    <div class="dog">
+      <div class="face">🦮</div>
+      <h4>老黑</h4>
+      <div class="meta">拉布拉多混血 · 公 · 5 岁</div>
+      <p>沉稳可靠的前辈，不拆家、不爆冲，陪老人散步是最理想的搭档。</p>
+      <span class="tag">已绝育</span><span class="tag">已疫苗</span><span class="tag">沉稳</span>
+    </div>
+    <div class="dog">
+      <div class="face">🐩</div>
+      <h4>团团</h4>
+      <div class="meta">小型犬 · 母 · 1 岁</div>
+      <p>被遗弃在小区门口，胆子小、慢热，熟了之后会把下巴搁在你脚上睡。</p>
+      <span class="tag">已绝育</span><span class="tag">已疫苗</span><span class="tag">慢热</span>
+    </div>
+  </section>
+
+  <h3 class="section">📋 救助动态</h3>
+  <section class="news">
+    <article>
+      <time>2026 年 11 月 2 日</time>
+      <h4>冬季保暖物资已送达安置点</h4>
+      <p>感谢上周捐赠的 40 条旧毛毯和两箱尿垫，全部清点入库。安置点的犬舍加装了挡风帘，老年犬区域额外添了电热垫。</p>
+    </article>
+    <article>
+      <time>2026 年 10 月 26 日</time>
+      <h4>十月绝育日：14 只完成手术</h4>
+      <p>本月绝育日在合作宠物医院完成，共为 14 只流浪狗做了绝育和体检，术后恢复良好。控制繁殖，是减少流浪最根本的办法。</p>
+    </article>
+    <article>
+      <time>2026 年 10 月 18 日</time>
+      <h4>领养回访：奶糖的第一个生日</h4>
+      <p>去年被领养的奶糖在新家过了一岁生日，体重从 3 斤长到 18 斤。领养家庭说，它现在是全家的闹钟，每天六点准时叫起床。</p>
+    </article>
+  </section>
+
+  <h3 class="section">🏠 领养流程</h3>
+  <section class="steps">
+    <div class="step"><b>1. 填写申请</b>留下联系方式和居住情况，我们会在 3 天内联系你。</div>
+    <div class="step"><b>2. 见面互动</b>到安置点和狗狗相处半天，看看彼此的脾气合不合。</div>
+    <div class="step"><b>3. 家访确认</b>志愿者上门确认居住环境适合养狗，没有别的要求。</div>
+    <div class="step"><b>4. 签协议接回家</b>签领养协议，交接疫苗本，之后有 3 次回访。</div>
+  </section>
+
+  <p style="margin-top:30px; color:var(--muted); font-size:14.5px;">领养代替购买，不离不弃，是我们想传达的全部。如果你暂时不能领养，转发、捐赠旧衣物毛毯、或者来安置点当半天志愿者，都是实实在在的帮助。</p>
 </main>
-<footer>© 2026 Notes on Slow Tech · Written by hand, typeset by machine.</footer>
+
+<footer>
+  <div class="wrap">© 2026 暖爪流浪狗救助站 · 用领养代替购买 · 本站由志愿者业余维护</div>
+</footer>
 </body>
 </html>

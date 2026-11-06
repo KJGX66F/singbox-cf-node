@@ -44,7 +44,7 @@ https://app-xxxxxxxx-workspace-xxxxxx.cloady.io
 
 用浏览器打开：
 
-1. **应用地址本身** → 看到一个英文博客页面 = 伪装层正常 ✅
+1. **应用地址本身** → 看到流浪狗救助站页面 = 伪装层正常 ✅
 2. **应用地址 + 你的 WS_PATH**（如 `https://app-…cloady.io/stream-xxxxxx`）→ 显示 `Bad Request` 或 400 = sing-box 在应答 ✅
 
 两个都对，服务端就部署成功了。
@@ -97,7 +97,7 @@ vless://<UUID>@<应用地址>:443?encryption=none&security=tls&sni=<应用地址
 | 现象 | 原因与解法 |
 |---|---|
 | 构建失败 | 看应用 Deploy 日志；多为网络拉取镜像失败，点 Redeploy 重试 |
-| 博客打不开 / 地址 404 | 先等 2–3 分钟（新应用地址生效有延迟）；确认应用是 Running |
+| 伪装站打不开 / 地址 404 | 先等 2–3 分钟（新应用地址生效有延迟）；确认应用是 Running |
 | 改了变量没变化 | 没 Redeploy，重新部署一次 |
 | 客户端测速 -1 / 超时 | 逐项核对：UUID、WS_PATH、链接里 path 的 `%2F` 编码、host 与 sni 是否一致 |
 | 几天后节点停了 | 免费应用 7 天无流量会自动暂停，去 Cloady 后台点 **Start** 恢复 |
