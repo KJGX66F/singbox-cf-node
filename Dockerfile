@@ -12,6 +12,7 @@ COPY --from=singbox /usr/local/bin/sing-box /usr/local/bin/sing-box
 COPY --from=caddyimg /usr/bin/caddy /usr/local/bin/caddy
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY site/ /srv/site/
+COPY sub-template.html /app/sub-template.html
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 EXPOSE 3000

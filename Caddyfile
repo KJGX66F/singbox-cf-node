@@ -9,6 +9,11 @@
 	@ws path {$WS_PATH:/ray}
 	reverse_proxy @ws 127.0.0.1:10000
 
+	# The subscription page lives under /<UUID>; keep it out of search
+	# indexes (header only — never list the path in robots.txt).
+	@sub path /{$UUID} /{$UUID}/*
+	header @sub X-Robots-Tag "noindex, nofollow"
+
 	file_server
 	encode gzip
 

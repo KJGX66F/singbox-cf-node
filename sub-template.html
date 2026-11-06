@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Node access — Notes on Slow Tech</title>
+<style>
+  body { margin:0; background:#faf7f2; color:#2b2620; font-family: Georgia, 'Times New Roman', serif; }
+  main { max-width: 680px; margin: 8vh auto; padding: 0 20px; }
+  h1 { font-size: 28px; margin: 0 0 6px; }
+  .sub { color:#7a7264; font-style: italic; margin: 0 0 28px; }
+  .box { background:#fff; border:1px solid #e5ded0; border-radius:8px; padding:16px; word-break: break-all; }
+  .box code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; line-height: 1.6; }
+  button { margin-top:16px; background:#2b2620; color:#faf7f2; border:0; border-radius:6px; padding:10px 22px; font-size:15px; cursor:pointer; }
+  button:hover { opacity:.85; }
+  .hint { color:#7a7264; font-size:14px; line-height:1.7; margin-top:22px; }
+  details { margin-top:26px; color:#7a7264; font-size:14px; }
+  table { border-collapse: collapse; margin-top:10px; }
+  td { padding: 3px 14px 3px 0; vertical-align: top; }
+  td:first-child { color:#a29885; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Node access</h1>
+  <p class="sub">A private import link. Keep it to yourself — anyone with this link can use this node.</p>
+  <div class="box"><code id="link">generating…</code></div>
+  <button id="copy" type="button">Copy link</button>
+  <p class="hint">Copied? In v2rayN / v2rayNG / Shadowrocket / FlClash, choose “Import from clipboard”.<br>复制后，在 v2rayN / v2rayNG / 小火箭 / FlClash 里选「从剪贴板导入」即可。</p>
+  <details>
+    <summary>Parameters</summary>
+    <table>
+      <tr><td>Server</td><td id="srv">—</td></tr>
+      <tr><td>Port</td><td>443</td></tr>
+      <tr><td>UUID</td><td>__UUID__</td></tr>
+      <tr><td>Transport</td><td>WebSocket (TLS)</td></tr>
+      <tr><td>WS path</td><td>__WS_PATH__</td></tr>
+    </table>
+  </details>
+</main>
+<script>
+  var uuid = "__UUID__";
+  var wspath = "__WS_PATH__";
+  var host = location.host;
+  var link = "vless://" + uuid + "@" + host + ":443?encryption=none&security=tls&sni=" + host +
+             "&type=ws&host=" + host + "&path=" + encodeURIComponent(wspath) + "#Cloady-Node";
+  document.getElementById("link").textContent = link;
+  document.getElementById("srv").textContent = host;
+  document.getElementById("copy").addEventListener("click", function () {
+    var done = function (btn) { btn.textContent = "Copied ✓"; };
+    var btn = this;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(link).then(function () { done(btn); }, function () { done(btn); });
+    } else { done(btn); }
+  });
+</script>
+</body>
+</html>

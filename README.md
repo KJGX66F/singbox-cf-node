@@ -50,7 +50,17 @@ curl -I http://127.0.0.1:3000/        # 200，伪装博客
    - 平台给源站配了证书 → 用 **Full (Strict)**（更推荐）。
 3. 确认所选套餐支持 WebSocket（免费版支持，无需额外设置）。
 
-## 客户端链接
+## 获取节点链接（推荐：取链接页面）
+
+部署成功后，用浏览器打开（后缀就是你的 UUID，它本来就是节点的钥匙，不用再多记一个）：
+
+```
+https://<你的地址>/<你的 UUID>
+```
+
+页面会自动拼好完整的节点链接，点 **Copy link**，再到客户端里选「从剪贴板导入」即可，不用再手工拼参数。**不要把这个页面地址发给任何人、不要让它出现在截图和视频里**——打开它的人就能拿到完整链接。
+
+手工拼链接（备用）：
 
 ```
 vless://<UUID>@<你的域名>:443?encryption=none&security=tls&sni=<你的域名>&type=ws&host=<你的域名>&path=<WS_PATH 的 URL 编码>#CF-Singbox
@@ -73,6 +83,7 @@ vless://<UUID>@<你的域名>:443?encryption=none&security=tls&sni=<你的域名
 |---|---|
 | `Dockerfile` | 单容器镜像：Caddy（前门）+ sing-box（内核） |
 | `Caddyfile` | 伪装站 + WS 路径反代规则 |
-| `entrypoint.sh` | 按环境变量生成 sing-box 配置并拉起两个进程 |
+| `entrypoint.sh` | 按环境变量生成 sing-box 配置、取链接页面，并拉起两个进程 |
+| `sub-template.html` | 取链接页面的模板（运行时按 UUID/路径渲染到秘密后缀下） |
 | `site/` | 伪装网页（可换成你自己的静态站） |
 | `docker-compose.yml` | 本地/Compose 部署 |
