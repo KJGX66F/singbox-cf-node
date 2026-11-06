@@ -1,0 +1,2 @@
+# Local env files may contain your UUID — never commit them.
+.env

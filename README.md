@@ -26,7 +26,7 @@
 
 ## 部署方式一：Docker 镜像（平台选「Deploy a Docker image」）
 
-1. 把本仓库构建成镜像推到任意公共仓库（Docker Hub / ghcr.io / quay.io），或直接用平台从仓库构建。
+1. 直接用现成镜像 **`ghcr.io/kjgx66f/singbox-cf-node:latest`**（或把本仓库自己构建成镜像推到任意公共仓库，或用平台从仓库构建）。
 2. 在平台创建应用时填镜像地址，设置环境变量 `UUID`、`WS_PATH`、`PORT`。
 3. 记下平台给应用分配的公网地址。
 

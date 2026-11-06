@@ -7,7 +7,7 @@
 
 1. **GitHub 账号**（用来在部署时选择本仓库）；
 2. **Cloady 账号**：打开 cloady.com，用邮箱收 6 位验证码登录（没有密码，不用银行卡）；
-3. **一个代理客户端**：v2rayN（电脑）/ Shadowrocket 小火箭（iOS）/ FlClash 或 v2rayNG（安卓），任选其一。
+3. **一个代理客户端**：v2rayN（电脑）/ Shadowrocket 小火箭（iOS）/ FlClash 或 v2rayNG（安卓），任选其一。**请用这四个之一**：经实测，平台边缘会改写一个握手响应头，sing-box 内核的客户端（如 SFA、Hiddify、NekoBox）会因此握手失败；上面四个（xray / mihomo 内核）不受影响。
 
 ## 第一步：建工作区（已有可跳过）
 

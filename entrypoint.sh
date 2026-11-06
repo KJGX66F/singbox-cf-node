@@ -10,6 +10,12 @@ if [ -z "${UUID:-}" ]; then
   echo "FATAL: UUID env var is required" >&2
   exit 1
 fi
+# A malformed UUID would make sing-box refuse to start while the decoy site
+# keeps working — a very confusing failure. Fail fast with a clear message.
+if ! printf '%s' "$UUID" | grep -Eq '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$'; then
+  echo "FATAL: UUID env var is not a valid UUID: ${UUID}" >&2
+  exit 1
+fi
 
 WS_PATH="${WS_PATH:-/ray}"
 case "$WS_PATH" in
