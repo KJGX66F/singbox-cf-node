@@ -1,0 +1,19 @@
+{
+	admin off
+	auto_https off
+}
+
+:{$PORT:3000} {
+	root * /srv/site
+
+	@ws path {$WS_PATH:/ray}
+	reverse_proxy @ws 127.0.0.1:10000
+
+	file_server
+	encode gzip
+
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+	}
+}

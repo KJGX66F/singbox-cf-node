@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      UUID: "${UUID}"
+      WS_PATH: "${WS_PATH:-/ray}"
+      PORT: "3000"
+    restart: unless-stopped
